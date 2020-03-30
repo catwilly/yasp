@@ -1,0 +1,31 @@
+<div>
+  <mat-progress-spinner *ngIf="list === null" diameter="40" strokeWidth="4" mode="indeterminate"></mat-progress-spinner>
+  <div fxLayout="column" fxLayoutAlign="start center" *ngIf="list">
+    <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
+      <button mat-icon-button color="primary" (click)="onHome()">
+        <mat-icon svgIcon="home"></mat-icon>
+      </button> 
+      <div>{{list.Name}}</div>
+      <div></div>
+    </mat-toolbar>
+    <mat-selection-list style="width:100%">
+      <div fxLayout="row" fxLayoutAlign="space-between center" style="width:100%" *ngFor="let item of list.Items">
+        <mat-list-option fxFlex checkboxPosition="before">
+          <div fxLayout="row" fxLayoutAlign="space-between center" style="width:100%">
+            <div>{{item.Name}}</div>
+            <div>{{item.Quantity}}</div>          
+          </div>
+        </mat-list-option>
+        <button mat-icon-button (click)="onEdit(item)">
+          <mat-icon svgIcon="pencil-outline"></mat-icon>
+        </button>  
+        <button mat-icon-button (click)="onDelete(item)">
+          <mat-icon svgIcon="delete-forever"></mat-icon>
+        </button>  
+      </div>
+    </mat-selection-list>
+    <button mat-fab (click)="onAdd()" style="margin-top:20pt">
+      <mat-icon svgIcon="plus"></mat-icon>
+    </button>
+  </div>
+</div>

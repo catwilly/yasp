@@ -1,0 +1,36 @@
+<div fxLayout="column" fxLayoutAlign="start center" style="width:100%">
+    <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
+        <div translate>MY_LISTS</div>
+        <div>
+            <button mat-icon-button *ngIf="lang.currentLang !== null" style="margin-right: 5pt;" (click)="onSelectLang()">
+                <mat-icon svgIcon="web"></mat-icon>
+                <!-- <img src="{{getLangFlagSrc()}}" style="width: 35pt;margin-right: 15pt;" /> -->
+            </button>        
+        </div>
+    </mat-toolbar>    
+    <mat-progress-spinner *ngIf="yaspRepo === null || lang.currentLang === null" diameter="40" strokeWidth="4" mode="indeterminate"></mat-progress-spinner>
+    <div *ngIf="yaspRepo !== null && lang.currentLang !== null" fxLayout="column" fxLayoutAlign="start center" style="width: 100%">                
+        <mat-action-list style="width: 95%" >
+            <div style="width: 100%" fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let yaspList of yaspRepo.Lists">
+                <button mat-list-item (click)="onListClick(yaspList)" style="height: 100%;" fxFlex>
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <mat-icon mat-list-icon svgIcon="format-list-checkbox"></mat-icon>
+                        <div mat-line style="margin-left:10pt">{{yaspList.Name}}</div>
+                    </div>                    
+                </button>            
+                <button mat-icon-button [disabled]="cantShare(yaspList)" (click)="onShare(yaspList)">
+                    <mat-icon svgIcon="whatsapp"></mat-icon>
+                </button>  
+                <button mat-icon-button (click)="onEdit(yaspList)">
+                    <mat-icon svgIcon="pencil-outline"></mat-icon>
+                </button>  
+                <button mat-icon-button (click)="onListDelete(yaspList)">
+                    <mat-icon svgIcon="delete-forever"></mat-icon>
+                </button>            
+            </div>
+        </mat-action-list>        
+        <button mat-fab (click)="onAdd()" style="margin-top:20pt">
+            <mat-icon svgIcon="plus"></mat-icon>
+        </button>
+    </div>
+</div>

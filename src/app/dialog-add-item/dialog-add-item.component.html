@@ -1,0 +1,21 @@
+<h1 mat-dialog-title><span translate>{{title}}</span></h1>
+<div mat-dialog-content fxLayout="column" fxLayoutAlign="start center">
+  <mat-form-field style="width: 95%;">
+    <input matInput placeholder="{{'WRITE_ITEM_NAME' | translate}}" [(ngModel)]="name" (keydown.enter)="onEnter()">
+  </mat-form-field>
+  <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 70%;">
+    <button mat-mini-fab (click)="onMinus()" style="margin: 0;">
+      <mat-icon svgIcon="minus"></mat-icon>
+    </button>
+    <mat-form-field appearance="outline" style="width: 50pt; text-align: center;margin:0;">
+      <input matInput type="number" [(ngModel)]="quantity">
+    </mat-form-field>
+    <button mat-mini-fab (click)="onPlus()" style="margin: 0;">
+      <mat-icon svgIcon="plus"></mat-icon>
+    </button>
+  </div>
+</div>
+<div mat-dialog-actions style="width:100%;margin-top:10pt" fxLayout="row" fxLayoutAlign="space-between center">
+  <button mat-stroked-button color="warn" (click)="onNoClick()"><span translate>NO</span></button>
+  <button mat-raised-button color="primary" (click)="onEnter()" [disabled]="cantConfirm()" cdkFocusInitial><span translate>YES</span></button>
+</div>

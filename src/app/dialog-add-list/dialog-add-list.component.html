@@ -1,0 +1,10 @@
+<h1 mat-dialog-title><span translate>{{title}}</span></h1>
+<div mat-dialog-content>
+  <mat-form-field style="width: 100%;">
+    <input matInput placeholder="{{'WRITE_LIST_NAME' | translate}}" [(ngModel)]="name" style="width: 100%;" (keydown.enter)="onEnter()">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions style="width:100%;margin-top:10pt" fxLayout="row" fxLayoutAlign="space-between center">
+  <button mat-stroked-button color="warn" (click)="onNoClick()"><span translate>NO</span></button>
+  <button mat-raised-button color="primary" (click)="onEnter()" [disabled]="cantConfirm()"><span translate>YES</span></button>
+</div>

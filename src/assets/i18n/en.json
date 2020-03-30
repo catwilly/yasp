@@ -1,0 +1,13 @@
+{
+    "MY_LISTS": "My lists",
+    "NO": "Nope",
+    "YES": "Yeah",
+    "ASK_CHANGE_NAME": "Change name?",
+    "ASK_NEW_LIST": "New list?",
+    "WRITE_ITEM_NAME": "Write the thing name",
+    "WRITE_LIST_NAME": "Write the list name",
+    "ASK_CHANGE_THING": "Change thing?",
+    "ASK_NEW_THING": "New thing?",
+    "DELETE": "Delete {{x}}?",
+    "ASK_CHANGE_LANG": "Change language?"
+}

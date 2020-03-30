@@ -1,0 +1,13 @@
+{
+    "MY_LISTS": "Mis listas",
+    "NO": "No",
+    "YES": "Sí",
+    "ASK_CHANGE_NAME": "Cambiar nombre?",
+    "ASK_NEW_LIST": "¿Nueva lista?",
+    "WRITE_ITEM_NAME": "nombre del artículo",
+    "WRITE_LIST_NAME": "nombre de la lista",
+    "ASK_CHANGE_THING": "¿Cambiar artículo?",
+    "ASK_NEW_THING": "¿Nuevo artículo?",
+    "DELETE": "¿Borrar {{x}}?",
+    "ASK_CHANGE_LANG": "¿Cambiar idioma?"
+}

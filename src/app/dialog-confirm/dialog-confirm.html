@@ -1,0 +1,16 @@
+<div fxLayout="column">
+  <div>
+    <span fxFlex></span>
+    <mat-icon color="primary" style="transform: scale(2.5);margin-bottom: 30px;" svgIcon="comment-question-outline"></mat-icon>
+    <span fxFlex></span>
+  </div>
+  <div class="mat-display-1" style="margin-bottom:20px;text-align: center" translate>{{data.title}}</div>
+  <div style="margin-top:30px" fxLayout="row" fxLayoutAlign="space-between center">    
+    <button mat-stroked-button color="warn" [mat-dialog-close]="false">
+      <span translate>NO</span>
+    </button>    
+    <button mat-raised-button color="primary" [mat-dialog-close]="true">
+      <span translate>YES</span>
+    </button>
+  </div>
+</div>
