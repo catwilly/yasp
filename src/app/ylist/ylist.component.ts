@@ -36,7 +36,7 @@ export class YlistComponent implements OnInit {
         }
         
         public onHome() {
-          this.router.navigate(['/']);
+          this.router.navigate(['/'], { replaceUrl: true });
         }
         
         public onEdit(item: IYaspItem) {

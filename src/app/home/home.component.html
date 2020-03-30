@@ -10,7 +10,7 @@
     </mat-toolbar>    
     <mat-progress-spinner *ngIf="yaspRepo === null || lang.currentLang === null" diameter="40" strokeWidth="4" mode="indeterminate"></mat-progress-spinner>
     <div *ngIf="yaspRepo !== null && lang.currentLang !== null" fxLayout="column" fxLayoutAlign="start center" style="width: 100%">                
-        <mat-action-list style="width: 95%" >
+        <mat-action-list style="width: 98%" >
             <div style="width: 100%" fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let yaspList of yaspRepo.Lists">
                 <button mat-list-item (click)="onListClick(yaspList)" style="height: 100%;" fxFlex>
                     <div fxLayout="row" fxLayoutAlign="start center">
