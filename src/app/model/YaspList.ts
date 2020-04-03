@@ -42,7 +42,7 @@ export class YaspConverter {
         
         for(let i=0; i<list.Items.length; i++) {
             let item = list.Items[i];
-            let name = item.Name.replace(" ", "_");
+            let name = item.Name.replace(/ /g, "_");
             listStr += `|${item.Quantity}|${name}`;
         }
 
@@ -56,7 +56,7 @@ export class YaspConverter {
         let items: IYaspItem[] = []
         for(let i=1; i<parts.length; i+=2) {
             let qStr = parts[i];
-            let name = parts[i+1].replace("_", " ");
+            let name = parts[i+1].replace(/_/g, " ");
             
             let q = parseInt(qStr);
             let yaspItem = { Name: name, Quantity: q};
