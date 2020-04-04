@@ -6,6 +6,7 @@ html, body, .app-frame {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     box-sizing: border-box;
     color: #e0e0e0;
+    background-color: #303030;
 }
 
 .language-select {
