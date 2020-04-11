@@ -58,14 +58,33 @@ export class HomeComponent implements OnInit {
       let decoded = decodeURI(newListParamUrl);
       let newList = YaspConverter.StringToList(decoded);
       
-      // check if exists
-      //this.yaspRepo.Lists.findIndex((v,i,o) => v.Name === newList.Name)
+      newList.Name = this.getNewListName(this.yaspRepo, newList.Name);
 
       this.yaspRepo.Lists.push(newList);
       this.listProvider.OnRepoUpdated();
 
       this.router.navigate([''], { replaceUrl: true });
     }
+  }
+
+  private hasListName(repo: IYaspRepo, name: string): boolean {
+    // check if exists
+    const inx = repo.Lists.findIndex((v,i,o) => v.Name === name);
+
+    return (inx >= 0);
+  }
+
+  private getNewListName(repo: IYaspRepo, name: string) : string {
+    
+    let retName = name;
+
+    let nextSufix = 2;
+    while(this.hasListName(repo, retName)) {
+      retName = name + " " + nextSufix;
+      nextSufix++;
+    }
+
+    return retName;
   }
   
   public onListClick(list: IYaspList) {
@@ -128,6 +147,8 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(name => {
       if(name) {
         let nameStr = <string>name;
+        nameStr = this.getNewListName(this.yaspRepo, nameStr);
+
         // create new list
         let newList: IYaspList = { Name: nameStr, Items: [] };
         this.yaspRepo.Lists.push(newList);
