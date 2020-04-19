@@ -5,7 +5,8 @@
             <button mat-icon-button *ngIf="lang.currentLang !== null" style="margin-right: 5pt;" (click)="onSelectLang()">
                 <mat-icon svgIcon="web"></mat-icon>
                 <!-- <img src="{{getLangFlagSrc()}}" style="width: 35pt;margin-right: 15pt;" /> -->
-            </button>        
+            </button>
+            <div>v1.0.1</div>
         </div>
     </mat-toolbar>    
     <mat-progress-spinner *ngIf="yaspRepo === null || lang.currentLang === null" diameter="40" strokeWidth="4" mode="indeterminate"></mat-progress-spinner>
