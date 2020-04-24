@@ -42,16 +42,18 @@ export class YaspConverter {
         
         for(let i=0; i<list.Items.length; i++) {
             let item = list.Items[i];
-            let name = item.Name.replace(/ /g, "_");
+            let name = item.Name;
             listStr += `|${item.Quantity}|${name}`;
         }
+
+        listStr = listStr.replace(/ /g, "_");
 
         return listStr;
     }
 
     public static StringToList(str: string) : IYaspList {
         let parts = str.split("|");
-        let name = parts[0];
+        let name = parts[0].replace(/_/g, " ");;
 
         let items: IYaspItem[] = []
         for(let i=1; i<parts.length; i+=2) {
