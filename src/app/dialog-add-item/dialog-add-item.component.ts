@@ -44,7 +44,7 @@ export class DialogAddItemComponent implements OnInit {
   }
   
   public onEnter() {
-    const item: IYaspItem = { Name: this.name, Quantity: this.quantity }
+    const item: IYaspItem = { Name: this.name, Quantity: this.quantity, Checked: false }
     this.dialogRef.close(item);
   }
 

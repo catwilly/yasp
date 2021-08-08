@@ -173,6 +173,7 @@ export class HomeComponent implements OnInit {
 
   public drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.yaspRepo.Lists, event.previousIndex, event.currentIndex);
+    this.listProvider.OnRepoUpdated();
   }
   
 }

@@ -3,6 +3,7 @@
 export interface IYaspItem {
     Name: string;
     Quantity: number;
+    Checked: boolean;
 }
 
 export interface IYaspList {
@@ -19,7 +20,8 @@ export class Mockery {
     public static GetItem(i: number) : IYaspItem {
         return {
             Name: 'item ' + i,
-            Quantity: Math.round(Math.random() * 10)
+            Quantity: Math.round(Math.random() * 10),
+            Checked: false
         };
     }
 
@@ -61,7 +63,7 @@ export class YaspConverter {
             let name = parts[i+1].replace(/_/g, " ");
             
             let q = parseInt(qStr);
-            let yaspItem = { Name: name, Quantity: q};
+            let yaspItem = { Name: name, Quantity: q, Checked: false };
             
             items.push(yaspItem);
         }

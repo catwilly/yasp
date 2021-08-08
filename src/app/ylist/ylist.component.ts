@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap, map } from 'rxjs/operators';
 import { YaspListProvider } from '../services/YaspListProvider';
 import { IYaspList, IYaspItem } from '../model/YaspList';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSelectionListChange } from '@angular/material';
 import { DialogAddItemComponent, DialogAddItemData } from '../dialog-add-item/dialog-add-item.component';
 import { DialogConfirmComponent, DialogConfirmData } from '../dialog-confirm/dialog-confirm';
 import { LangService } from '../services/lang.service';
@@ -87,6 +87,13 @@ export class YlistComponent implements OnInit {
 
         public drop(event: CdkDragDrop<string[]>) {
           moveItemInArray(this.list.Items, event.previousIndex, event.currentIndex);
+          this.listProvider.OnRepoUpdated();
+        }
+
+        public onSelectionChange(event: MatSelectionListChange) {
+          let listItem = <IYaspItem>event.option.value;
+          listItem.Checked = event.option.selected;
+          this.listProvider.OnRepoUpdated();
         }
         
       }
