@@ -1,13 +1,17 @@
 <div fxLayout="column" fxLayoutAlign="start center" style="width:100%">
     <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
-        <div translate>MY_LISTS</div>
+        <!-- <div translate>MY_LISTS</div> -->
+        <div fxLayout="row" fxLayoutAlign="left center">
+            <img src="../../assets/icons/yasp24.png" />
+            <div style='font-family: Century Gothic, sans-serif; margin-left:10px'>Yasp</div>
+        </div>
         <div>
             <button mat-icon-button *ngIf="lang.currentLang !== null" style="margin-right: 5pt;" (click)="onSelectLang()">
                 <mat-icon svgIcon="web"></mat-icon>
                 <!-- <img src="{{getLangFlagSrc()}}" style="width: 35pt;margin-right: 15pt;" /> -->
             </button>            
         </div>
-        <div>v1.0.4</div>
+        <div>v1.0.5</div>
     </mat-toolbar>    
     <mat-progress-spinner *ngIf="yaspRepo === null || lang.currentLang === null" diameter="40" strokeWidth="4" mode="indeterminate"></mat-progress-spinner>
     <div *ngIf="yaspRepo !== null && lang.currentLang !== null" fxLayout="column" fxLayoutAlign="start center" style="width: 100%">                
