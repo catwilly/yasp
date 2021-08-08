@@ -9,6 +9,7 @@ import { DialogAddItemComponent, DialogAddItemData } from '../dialog-add-item/di
 import { DialogConfirmComponent, DialogConfirmData } from '../dialog-confirm/dialog-confirm';
 import { LangService } from '../services/lang.service';
 import { TranslateService } from '@ngx-translate/core';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-ylist',
@@ -82,6 +83,10 @@ export class YlistComponent implements OnInit {
               this.listProvider.OnRepoUpdated();
             }
           });
+        }
+
+        public drop(event: CdkDragDrop<string[]>) {
+          moveItemInArray(this.list.Items, event.previousIndex, event.currentIndex);
         }
         
       }

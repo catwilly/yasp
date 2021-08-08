@@ -8,6 +8,7 @@ import { DialogConfirmComponent, DialogConfirmData } from '../dialog-confirm/dia
 import { TranslateService } from '@ngx-translate/core';
 import { LangService } from '../services/lang.service';
 import { DialogLangselComponent } from '../dialog-langsel/dialog-langsel-component';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-home',
@@ -168,6 +169,10 @@ export class HomeComponent implements OnInit {
       }
     });
 
+  }
+
+  public drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.yaspRepo.Lists, event.previousIndex, event.currentIndex);
   }
   
 }

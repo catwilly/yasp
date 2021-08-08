@@ -8,8 +8,8 @@
       <div>{{list.Name}}</div>
       <div></div>
     </mat-toolbar>
-    <mat-selection-list style="width:100%">
-      <div fxLayout="row" fxLayoutAlign="space-between center" style="width:100%" *ngFor="let item of list.Items">
+    <mat-selection-list style="width:100%" cdkDropList (cdkDropListDropped)="drop($event)">
+      <div class="dragItem" fxLayout="row" fxLayoutAlign="space-between center" style="width:100%" *ngFor="let item of list.Items" cdkDrag>
         <mat-list-option fxFlex checkboxPosition="before">
           <div fxLayout="row" fxLayoutAlign="space-between center" style="width:100%">
             <div>{{item.Name}}</div>

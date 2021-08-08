@@ -31,6 +31,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { LangService } from './services/lang.service';
 import { DialogLangselComponent } from './dialog-langsel/dialog-langsel-component';
 
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/');
 }
@@ -62,6 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatSelectModule,
     FormsModule,
     MatInputModule,
+    DragDropModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     StorageModule.forRoot({ IDBNoWrap: true }),
     TranslateModule.forRoot({
