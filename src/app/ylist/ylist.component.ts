@@ -19,7 +19,8 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 export class YlistComponent implements OnInit {
   
   public list: IYaspList = null;
-  
+  public swapMode: boolean = false;
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private listProvider: YaspListProvider, 
@@ -38,6 +39,10 @@ export class YlistComponent implements OnInit {
         
         public onHome() {
           this.router.navigate(['/'], { replaceUrl: true });
+        }
+
+        public onSwap() {
+          this.swapMode = !this.swapMode;
         }
         
         public onEdit(item: IYaspItem) {

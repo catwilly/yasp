@@ -4,12 +4,33 @@
     <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
       <button mat-icon-button color="primary" (click)="onHome()">
         <mat-icon svgIcon="home"></mat-icon>
-      </button> 
+      </button>        
       <div>{{list.Name}}</div>
-      <div></div>
+      <button mat-icon-button [color]="swapMode ? 'accent' : 'primary'" (click)="onSwap()" style="margin-left: 20px">
+        <mat-icon svgIcon="swap-vertical"></mat-icon>
+      </button>
     </mat-toolbar>
-    <mat-selection-list style="width:100%" cdkDropList (cdkDropListDropped)="drop($event)" (selectionChange)="onSelectionChange($event)">
+    <mat-selection-list *ngIf="swapMode" style="width:100%" cdkDropList (cdkDropListDropped)="drop($event)" (selectionChange)="onSelectionChange($event)">
       <div class="dragItem" fxLayout="row" fxLayoutAlign="space-between center" style="width:100%" *ngFor="let item of list.Items" cdkDrag>
+        <div style="display: flex;">
+          <mat-icon svgIcon="drag"></mat-icon>
+        </div>
+        <mat-list-option [disabled]="true" style="background-color: #303030;" fxFlex checkboxPosition="before" [selected]="item.Checked" [value]="item">
+          <div fxLayout="row" fxLayoutAlign="space-between center" style="width:100%">
+            <div>{{item.Name}}</div>
+            <div>{{item.Quantity}}</div>          
+          </div>
+        </mat-list-option>
+        <button mat-icon-button (click)="onEdit(item)">
+          <mat-icon svgIcon="pencil-outline"></mat-icon>
+        </button>  
+        <button mat-icon-button (click)="onDelete(item)">
+          <mat-icon svgIcon="delete-forever"></mat-icon>
+        </button>  
+      </div>
+    </mat-selection-list>
+    <mat-selection-list *ngIf="!swapMode" style="width:100%" (selectionChange)="onSelectionChange($event)">
+      <div fxLayout="row" fxLayoutAlign="space-between center" style="width:100%" *ngFor="let item of list.Items">
         <mat-list-option fxFlex checkboxPosition="before" [selected]="item.Checked" [value]="item">
           <div fxLayout="row" fxLayoutAlign="space-between center" style="width:100%">
             <div>{{item.Name}}</div>

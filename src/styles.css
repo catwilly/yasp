@@ -16,4 +16,5 @@ html, body, .app-frame {
 
 .dragItem {
     display: flex;
+    cursor: move;
 }
